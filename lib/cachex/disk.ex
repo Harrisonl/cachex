@@ -23,7 +23,7 @@ defmodule Cachex.Disk do
   def read(path, options \\ []) when is_binary(path) and is_list(options) do
     path
     |> File.read!
-    |> :erlang.binary_to_term([ :safe ])
+    |> :erlang.binary_to_term([])
     |> Util.wrap(:ok)
   rescue
     _ -> @error_unreachable_file
